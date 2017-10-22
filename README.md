@@ -21,7 +21,9 @@ python main.py
 ** Work with Chrome, Firefox only.
 ~~~~
 
-The app were firstly intent to deploy on Google App Engine.
+## Deployment:
+
+The app were firstly intent to deploy on Google App Engine (app.yaml & appengine_config.py).
 Install Google App Engine SDK and then
 ~~~~
 gcloud app deploy
