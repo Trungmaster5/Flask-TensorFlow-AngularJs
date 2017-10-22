@@ -10,13 +10,15 @@ An example Neural Network Classifier developed with TensorFlow, Flask (Python fr
 
 ## Start-up:
 ~~~~
-python main.py
+gunicorn main:app
+* The server should be started on http://127.0.0.1:8000/
+** Work with Chrome, Safari, Firefox.
 ~~~~
-
-The server should be started on http://127.0.0.1:5000/
-
-## Cautions:
-Open app with Chrome, FireFox for better experience. Safari may not work.
+~~~~
+python main.py
+* The server should be started on http://127.0.0.1:5000/
+** Work with Chrome, Firefox only.
+~~~~
 
 ## Limitations:
 The app were firstly intent to deploy on Google App Engine. The deployment is not yet possible at the present time (10/2017), because GAE only support numpy 1.6.x while the app requires numpy above 1.9.x.  
