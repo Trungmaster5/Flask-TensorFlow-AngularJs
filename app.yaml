@@ -10,8 +10,6 @@ handlers:
   static_dir: static
 - url: /model
   static_dir: model
-- url: /media
-  static_dir: media
 - url: /.*
   script: main.app
 

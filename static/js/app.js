@@ -6,7 +6,7 @@ angular.module('Urban',['ngMaterial'])
 
 function UrbanController($scope, $http){
   var $ctrl=this;
-  var apiPath='/api/predict'
+  var apiPath='/api/predict';
   $scope.predict=0;
   $scope.confidence=0;
   $scope.get_labels=0;
@@ -26,7 +26,6 @@ function UrbanController($scope, $http){
                               return response;
                             }, function(error){
                               console.log({error:error});
-                              warning(error.statusText);
                               return error;
                             });
     };
