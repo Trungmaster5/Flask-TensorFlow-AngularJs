@@ -1,0 +1,21 @@
+runtime: python27
+env: flex
+api_version: 1
+threadsafe: true
+entrypoint: gunicorn -b :$PORT main:app
+
+# [START handlers]
+handlers:
+- url: /static
+  static_dir: static
+- url: /model
+  static_dir: model
+- url: /media
+  static_dir: media
+- url: /.*
+  script: main.app
+
+# libraries:
+# - name: numpy
+#   version: "1.6.1"
+# [END handlers]

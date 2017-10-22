@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="../static/js/app.js"></script>
+
+<!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<html ng-app="Urban">
+	<head>
+		<title> URBAN SOUND CLASSIFICATION </title>
+	</head>
+	<body ng-controller="UrbanController as ctrl">
+		<div layout="row" layout-xs="column" layout-wrap layout-padding>
+			<div flex="30">
+				<h1>SAMPLES</h1>
+					<div>
+						<span> Sound #1 </span><audio src="../static/media/Air/147926-0-0-10.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #2 </span><audio src="../static/media/Dog/344-3-1-0.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #3 </span><audio src="../static/media/Car/155129-1-0-0.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #4 </span><audio src="../static/media/Children/178520-2-0-42.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #5 </span><audio src="../static/media/Drilling/144351-4-3-11.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #6 </span><audio src="../static/media/Engine/17578-5-0-0.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #7 </span><audio src="../static/media/Siren/118279-8-0-11.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #8 </span><audio src="../static/media/Jack/180937-7-1-15.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #9 </span><audio src="../static/media/Gun/7065-6-0-0.wav" controls></audio>
+					</div>
+					<div>
+						<span> Sound #10 </span><audio src="../static/media/Street/14387-9-0-7.wav" controls></audio>
+					</div>
+			</div>
+			<md-divider vertical></md-divider>
+
+			<div flex="30">
+				<h1> START PREDICTOR </h1>
+					<p> Select sound for prediction </p>
+					<select name="SelectSound" ng-model="selectedObj">
+						<option value="Air"> Sound #1 </option>
+						<option value="Dog"> Sound #2</option>
+						<option value="Car"> Sound #3</option>
+						<option value="Children"> Sound #4</option>
+						<option value="Drilling"> Sound #5</option>
+						<option value="Engine"> Sound #6</option>
+						<option value="Siren"> Sound #7</option>
+						<option value="Jack"> Sound #8</option>
+						<option value="Gun"> Sound #9</option>
+						<option value="Street"> Sound #10</option>
+					</select>
+					<md-button class="md-primary md-raised" ng-click="ctrl.run()" >RUN</md-button>
+					{% raw %}
+					<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+					{% endraw %}
+			</div>
+			<md-divider vertical></md-divider>
+
+			<div flex="30">
+				<h1> RESULT</h1>
+				{% raw %}
+					<p>
+						Prediction: {{predict}} <br>
+						Confidence: {{confidence}} <br>
+						True label: {{get_labels}}
+					</p>
+				{% endraw %}
+
+				<h1> INFORMATIONS </h1>
+					<ul>
+						A numeric identifier of the sound class:
+						<li>0 = air_conditioner </li>
+						<li>1 = car_horn</li>
+						<li>2 = children_playing </li>
+						<li>3 = dog_bark </li>
+						<li>4 = drilling </li>
+						<li>5 = engine_idling </li>
+						<li>6 = gun_shot </li>
+						<li>7 = jackhammer </li>
+						<li>8 = siren </li>
+						<li>9 = street_music</li>
+					</ul>
+					<md-divider></md-divider>
+					<p>Datasets: UrbanSound8K from Justin Salamon, Christopher Jacoby and Juan Pablo Bello.</p>
+			</div>
+
+		</div>
+	</body>
+</html>
