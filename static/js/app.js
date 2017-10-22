@@ -10,19 +10,19 @@ function UrbanController($scope, $http){
   $scope.predict=0;
   $scope.confidence=0;
   $scope.get_labels=0;
-  $scope.processing=false;
-
+  $scope.isProcessing=false;
+  $scope.selectedObj="";
   // $scope.audioUrl='media/'+$scope.selectedObj+'*.wav';
 
   $ctrl.run=function(){
-    $scope.processing=true;
-  	$http.post(apiPath, {media:$scope.selectedObj})
+    $scope.isProcessing=true;
+  	$http.post(apiPath, {"media":$scope.selectedObj})
                           .then(function(response){
                               console.log({response:response});
                               $scope.predict=response.data.predict;
                               $scope.confidence=response.data.confidence;
                               $scope.get_labels=response.data.true_labels;
-                              $scope.processing=false;
+                              $scope.isProcessing=false;
                               return response;
                             }, function(error){
                               console.log({error:error});

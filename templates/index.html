@@ -70,6 +70,9 @@
 					<md-button class="md-primary md-raised" ng-click="ctrl.run()" >RUN</md-button>
 					{% raw %}
 					<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+          <div ng-if="isProcessing">
+            I'M PROCESSING...
+          </div>
 					{% endraw %}
 			</div>
 			<md-divider vertical></md-divider>
