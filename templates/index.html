@@ -73,6 +73,10 @@
           <div ng-if="isProcessing">
             I'M PROCESSING...
           </div>
+          <div ng-if="error">
+            PLEASE RETRY...　<br>
+            <p ng-bind-html="error"></p>
+          </div>
 					{% endraw %}
 			</div>
 			<md-divider vertical></md-divider>

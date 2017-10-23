@@ -12,11 +12,13 @@ function UrbanController($scope, $http){
   $scope.get_labels=0;
   $scope.isProcessing=false;
   $scope.selectedObj="";
+  $scope.error="";
   // $scope.audioUrl='media/'+$scope.selectedObj+'*.wav';
 
   $ctrl.run=function(){
+    $scope.error="";
     $scope.isProcessing=true;
-  	$http.post(apiPath, {"media":$scope.selectedObj})
+  	$http.post(apiPath, {'media':$scope.selectedObj})
                           .then(function(response){
                               console.log({response:response});
                               $scope.predict=response.data.predict;
@@ -26,6 +28,8 @@ function UrbanController($scope, $http){
                               return response;
                             }, function(error){
                               console.log({error:error});
+                              $scope.error=error.data;
+                              $scope.isProcessing=false;
                               return error;
                             });
     };
