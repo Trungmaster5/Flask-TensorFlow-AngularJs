@@ -1,7 +1,7 @@
 (function () {
 'use strict';
 
-angular.module('Urban',['ngMaterial'])
+angular.module('Urban',['ngMaterial','ngSanitize'])
 .controller('UrbanController', UrbanController);
 
 function UrbanController($scope, $http){
